@@ -11,10 +11,11 @@ import (
 	"chatplus/utils/resp"
 	"context"
 	"fmt"
+	"time"
+
 	"github.com/go-redis/redis/v8"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/mojocn/base64Captcha"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -68,7 +69,7 @@ func (h *ManagerHandler) Login(c *gin.Context) {
 	}
 
 	// 超级管理员默认是ID:1
-	if manager.Id != SuperManagerID && manager.Status == false {
+	if manager.Id != SuperManagerID && !manager.Status {
 		resp.ERROR(c, "该用户已被禁止登录，请联系超级管理员")
 		return
 	}

@@ -2,7 +2,7 @@
   <div>
     <div class="member custom-scroll">
       <div class="title">
-        会员充值中心
+        会员计划
       </div>
       <div class="inner" :style="{height: listBoxHeight + 'px'}">
         <el-row :gutter="20">

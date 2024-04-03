@@ -426,11 +426,20 @@ func main() {
 			group.POST("sort", h.Sort)
 			group.GET("remove", h.Remove)
 		}),
+		// fx.Provide是fx框架的一个函数，用来告诉fx框架提供哪些构造函数来创建对象。
+		// 这里它注册了一个构造函数handler.NewMenuHandler，该构造函数返回一个*handler.MenuHandler对象。
 		fx.Provide(handler.NewMenuHandler),
+
+		// fx.Invoke是fx框架的另一个函数，它注册一个将在应用程序启动后立即调用的函数。
+		// 它用于将提供的对象（在这里是*s和*h）连接到应用程序的其他部分。
 		fx.Invoke(func(s *core.AppServer, h *handler.MenuHandler) {
+			// 在AppServer上创建一个新的路由组"/api/menu/"。
 			group := s.Engine.Group("/api/menu/")
+			// 在这个路由组上注册一个GET请求处理函数h.List，当访问"/api/menu/list"时，
+			// 这个处理函数将被调用来处理请求。
 			group.GET("list", h.List)
 		}),
+
 		fx.Invoke(func(s *core.AppServer, db *gorm.DB) {
 			err := s.Run(db)
 			if err != nil {
