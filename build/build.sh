@@ -5,7 +5,14 @@ arch=${2:-amd64}
 
 # build go api program
 cd ../api
-make clean $arch
+if [ "$arch" = "amd64" ]; then
+    make amd64
+elif [ "$arch" = "arm64" ]; then
+    make arm64
+else
+    echo "Unsupported architecture: $arch"
+    exit 1
+fi
 
 # build web app
 cd ../web
