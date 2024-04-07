@@ -95,16 +95,8 @@ const login = function () {
 
   httpPost('/api/user/login', {username: username.value.trim(), password: password.value.trim()}).then((res) => {
     setUserToken(res.data)
-    if (prevRoute.path === '' || prevRoute.path === '/register') {
-      if (isMobile()) {
-        router.push('/mobile')
-      } else {
-        router.push('/chat')
-      }
-    } else {
-      router.push(prevRoute.path)
-    }
-
+    router.push('/chat')
+    window.location.reload();
   }).catch((e) => {
     ElMessage.error('登录失败，' + e.message)
   })

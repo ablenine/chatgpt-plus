@@ -5,7 +5,7 @@
   height: 100%;
 }
 #app .common-layout .el-aside {
-  background-color: #252526;
+  background-color: #ccccd5;
 }
 #app .common-layout .el-aside .title-box {
   padding: 6px 10px;
@@ -20,7 +20,7 @@
 #app .common-layout .el-aside .chat-list {
   display: flex;
   flex-flow: column;
-  background-color: #28292a;
+  background-color: #404141;
   border-top: 1px solid #2f3032;
   border-right: 1px solid #2f3032;
 }
@@ -66,7 +66,7 @@
   width: 190px;
 }
 #app .common-layout .el-aside .chat-list .content .chat-list-item .chat-title {
-  color: #c1c1c1;
+  color: #393838;
   padding: 5px 10px;
   max-width: 220px;
   font-size: 14px;
@@ -79,13 +79,13 @@
   position: absolute;
   right: 2px;
   top: 16px;
-  color: #fff;
+  color: #1e1e1e;
 }
 #app .common-layout .el-aside .chat-list .content .chat-list-item .btn .el-icon {
   margin-right: 8px;
 }
 #app .common-layout .el-aside .chat-list .content .chat-list-item.active {
-  background-color: #343540;
+  background-color: #2e3043;
 }
 #app .common-layout .el-aside .chat-list .content .chat-list-item.active .btn {
   display: inline;

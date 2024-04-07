@@ -2,7 +2,7 @@
   <!-- 主容器 -->
   <div class="home">
     <!-- 导航栏容器 -->
-    <div class="navigator">
+    <div class="navigator" style="display: none;">
       <!-- Logo容器 -->
       <div class="logo">
         <!-- 显示Logo图片 -->
@@ -13,7 +13,7 @@
       <!-- 导航项列表 -->
       <ul class="nav-items">
         <!-- 列表项循环，为每个导航项 -->
-        <li v-for="item in filteredNavs" :key="item.path">
+        <li v-for="item in navs" :key="item.path">
           <!-- 导航链接，点击时调用changeNav函数，根据当前路径判断是否应用'active'样式 -->
           <a @click="changeNav(item)" :class="item.path === curPath ? 'active' : ''">
             <!-- 显示导航项图标 -->
@@ -47,11 +47,6 @@ import { onMounted, ref } from "vue";
 import { httpGet } from "@/utils/http";
 import { ElMessage } from "element-plus";
 
-import { computed } from 'vue';
-//只取1/6/7元素
-const filteredNavs = computed(() => {
-  return navs.value.filter((item, index) => [0, 5, 6].includes(index));
-});
 // 创建路由实例
 const router = useRouter();
 // 创建响应式变量
@@ -97,7 +92,7 @@ onMounted(() => {
     width 70px
     padding 10px 6px
     border-right: 1px solid #3c3c3c
-    background-color: #25272D
+    background-color: #393939
 
     .logo {
       display flex

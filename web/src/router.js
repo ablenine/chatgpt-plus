@@ -1,10 +1,11 @@
 import {createRouter, createWebHistory} from "vue-router";
 
 const routes = [
+
     {
         name: 'home',
         path: '/',
-        redirect: '/chat',
+        redirect: '/login',
         meta: {title: '首页'},
         component: () => import('@/views/Home.vue'),
         children: [

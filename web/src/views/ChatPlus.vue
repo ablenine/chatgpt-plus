@@ -68,8 +68,9 @@
                 </el-dropdown-item>
 
                 <el-dropdown-item>
-                  <i class="iconfont icon-github"></i>
                   <!-- 
+                  <i class="iconfont icon-github"></i>
+                  
                   <span>
                     powered by
                     <el-link type="primary" href="https://github.com/yangjian102621/chatgpt-plus" target="_blank">chatgpt-plus-v3</el-link> 
